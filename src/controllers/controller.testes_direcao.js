@@ -1,10 +1,10 @@
-import Teste_DirecaoModel from "../models/model.Teste_Direcao.js";
+import Teste_DirecaoModel from "../models/model.testes_direcao.js";
 
 class Teste_DirecaoController {
 
     static getAllTeste_Direcao(req, res) {
         try {
-            Teste_DirecaoModel.getAllTeste_Direcaos(function (err, result) {
+            Teste_DirecaoModel.getAllTestes_Direcao(function (err, result) {
                 if (err) {
                     console.error(err);
                     return res.status(500).json({ error: "Ocorreu um erro ao buscar os Teste_Direcaos." });

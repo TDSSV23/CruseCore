@@ -1,0 +1,13 @@
+{
+    "id_cliente": 1,
+    "nome": "João Silva",
+    "cnh": "23456789012",
+    "email": "joao.silva@example.com",
+    "telefone": "(11) 91234-5678",
+    "end_logradouro": "Avenida Paulista",
+    "end_numero": "1000",
+    "end_bairro": "Bela Vista",
+    "end_cidade": "São Paulo",
+    "end_uf": "SP",
+    "end_cep": "01310-100"
+}

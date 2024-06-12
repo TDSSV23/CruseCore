@@ -3,7 +3,7 @@ import { con } from "../config/database.js";
 
 class Teste_DirecaoModel {
     static getAllTestes_Direcao(callback) {
-        let sql = `select * from `
+        let sql = `select * from testes_direcao`
 
         con.query(sql, function (err, result) {
             if (err)

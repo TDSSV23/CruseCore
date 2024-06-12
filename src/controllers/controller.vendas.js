@@ -1,4 +1,4 @@
-import VendaModel from "../models/model.Venda.js";
+import VendaModel from "../models/model.vendas.js";
 
 class VendaController {
 

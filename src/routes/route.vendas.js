@@ -3,6 +3,6 @@ import VendaController from "../controllers/controller.vendas.js";
 
 const routeVendas = Router(); 
 
-routeVendas.get("/venda" , VendaController.getAllVenda);
+routeVendas.get("/vendas" , VendaController.getAllVenda);
 
 export default routeVendas

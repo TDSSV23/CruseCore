@@ -3,6 +3,6 @@ import VeiculoController from "../controllers/controller.veiculos.js";
 
 const routeVeiculo = Router(); 
 
-routeVeiculo.get("/Veiculo" , VeiculoController.getAllVeiculo);
+routeVeiculo.get("/veiculos" , VeiculoController.getAllVeiculo);
 
 export default routeVeiculo

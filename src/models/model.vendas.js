@@ -3,7 +3,7 @@ import { con } from "../config/database.js";
 
 class VendaModel {
     static getAllVendas(callback) {
-        let sql = `select * from `
+        let sql = `select * from vendas`
 
         con.query(sql, function (err, result) {
             if (err)
