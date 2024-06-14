@@ -4,7 +4,7 @@ class Teste_DirecaoController {
 
     static getAllTeste_Direcao(req, res) {
         try {
-            Teste_DirecaoModel.getAllTestes_Direcao(function (err, result) {
+            Teste_DirecaoModel.getAllTestes_direcao(function (err, result) {
                 if (err) {
                     console.error(err);
                     return res.status(500).json({ error: "Ocorreu um erro ao buscar os Teste." });
@@ -25,14 +25,14 @@ class Teste_DirecaoController {
         const dados = req.body;
 
         try {
-            Teste_DirecaoModel.createTestes_Direcao(dados, function (err, result) {
+            Teste_DirecaoModel.createTestes_direcao(dados, function (err, result) {
                 if (err) {
                     console.error("Erro ao editar os Testes", err);
-                    return res.status(500).json({ error: "Ocorreu um erro ao editar o Teste." });
+                    return res.status(500).json({ error: "Ocorreu um erro ao criar o Teste." });
                 }
 
                 return res.status(200).json({
-                    message: "O Teste foi editado com sucesso",
+                    message: "O Teste foi criado com sucesso",
                     data: {
                         "id": result.insertId,
                         "data_teste": dados.data_teste,
@@ -74,7 +74,7 @@ class Teste_DirecaoController {
         const id = req.params.id
 
         try {
-            Teste_DirecaoController.removeTeste_Direcao(id, function (err, result) {
+            Teste_DirecaoModel.removeTeste_direcao(id, function (err, result) {
                 if (err) {
                     console.error("Erro ao deletar o Teste: ", err);
                     return res.status(500).json({ error: "Ocorreu um erro ao deletar o Teste" });

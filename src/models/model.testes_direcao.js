@@ -3,7 +3,7 @@ import { con } from "../config/database.js";
 import moment from "moment";
 
 class Teste_DirecaoModel {
-    static getAllTestes_Direcao(callback) {
+    static getAllTestes_direcao(callback) {
         let sql = `select * from testes_direcao`
 
         con.query(sql, function (err, result) {
@@ -14,7 +14,7 @@ class Teste_DirecaoModel {
         });
     }; 
 
-    static createTestes_Direcao(dados, callback) {
+    static createTestes_direcao(dados, callback) {
         let sql = `INSERT INTO testes_direcao(id_veiculo, id_cliente, data_teste, avaliacao) VALUES (?, ?, ?, ?)`;
     
         con.query(sql, [dados.id_veiculo, dados.id_cliente, dados.data_teste, dados.avaliacao], function (err, result) {
@@ -38,7 +38,7 @@ class Teste_DirecaoModel {
         });
     }
 
-    static removeTeste_direcao(dados, callback) {
+    static removeTeste_direcao(id, callback) {
         let sql = `DELETE FROM testes_direcao WHERE id_teste = ?;`;
 
         con.query(sql, [id], async function (err, result) {
