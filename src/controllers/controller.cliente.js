@@ -28,11 +28,11 @@ class ClienteController {
             ClienteModel.createCliente(dados, function (err, result) {
                 if (err) {
                     console.error('Erro ao cadastrar pedido: ', err);
-                    return res.status(500).json({ error: "Ocorreu um erro ao cadastrar o pedido." });
+                    return res.status(500).json({ error: "Ocorreu um erro ao cadastrar o Cliente." });
                 }
 
                 return res.status(201).json({
-                    message: "Pedido inserido com sucesso",
+                    message: "Cliente inserido com sucesso",
                     data: {
                         id: result.insertId,
                         dados
@@ -71,15 +71,30 @@ class ClienteController {
             res.status(500).json({ error: "Erro interno do servidor." });
         }
 
-    } 
-        
+    }
+
+    static removeCliente(req, res) {
+        const id = req.params.id;
+
+        try {
+            ClienteModel.removeCliente(id, function (err, result) {
+                if (err) {
+                    console.error("Erro ao deletar Pedido: ", err);
+                    return res.status(500).json({ error: "Ocorreu um erro ao deletar o Cliente" });
+                }
+
+                if (result.affectedRows === 0) {
+                    return res.status(404).json({ message: "O Cliente não foi encontrado" })
+                }
+
+                return res.status(200).json({ message: "Cliente deletado com sucesso.", data: { id } });
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: "Erro interno do servidor." });
+        }
+    }
     
-
-    
-
-
-
-
 } export default ClienteController;
 
 

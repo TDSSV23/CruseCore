@@ -39,6 +39,17 @@ class ClienteModel {
 
     }
 
+    static removeCliente(id, callback) {
+        let sql = `delete from clientes where id_Clientes=?`
+
+        con.query(sql, [id], function (err, result) {
+            if (err)
+                callback(err, null);
+            else
+                callback(null, result);
+        });
+    }
+
 
 
 

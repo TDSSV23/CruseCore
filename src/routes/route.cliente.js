@@ -6,5 +6,6 @@ const routeCliente = Router();
 routeCliente.get("/cliente" , ClienteController.getAllCliente);
 routeCliente.post("/cliente" , ClienteController.createCliente);
 routeCliente.put("/cliente/:id", ClienteController.editCliente);
+routeCliente.delete("/cliente/:id", ClienteController.removeCliente)
 
 export default routeCliente
