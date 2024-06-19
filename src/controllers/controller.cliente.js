@@ -27,7 +27,7 @@ class ClienteController {
         try {
             ClienteModel.createCliente(dados, function (err, result) {
                 if (err) {
-                    console.error('Erro ao cadastrar pedido: ', err);
+                    console.error('Erro ao cadastrar o Cliente: ', err);
                     return res.status(500).json({ error: "Ocorreu um erro ao cadastrar o Cliente." });
                 }
 
@@ -93,6 +93,22 @@ class ClienteController {
             console.error(error);
             res.status(500).json({ error: "Erro interno do servidor." });
         }
+    }
+
+    static loginCliente(req, res) {
+        const { email, password } = req.body;
+
+        ClienteModel.loginCliente(email, password, (err, cliente) => {
+            if (err) {
+                console.error('Erro ao fazer login:', err);
+                return res.status(500).json({ error: "Erro ao fazer login." });
+            }
+
+            res.status(200).json({
+                message: "Login realizado com sucesso!",
+                data: cliente
+            });
+        });
     }
     
 } export default ClienteController;

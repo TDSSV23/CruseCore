@@ -8,4 +8,9 @@ routeCliente.post("/cliente" , ClienteController.createCliente);
 routeCliente.put("/cliente/:id", ClienteController.editCliente);
 routeCliente.delete("/cliente/:id", ClienteController.removeCliente)
 
+// Rota de Login
+routeCadastro.post("/cliente" , ClienteController.createCliente);
+routeLogin.post("/cliente", ClienteController.loginCliente);
+
+
 export default routeCliente
