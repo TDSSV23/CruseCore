@@ -40,7 +40,7 @@ class ClienteModel {
     }
 
     static removeCliente(id, callback) {
-        let sql = `delete from clientes where id_Clientes=?`
+        let sql = `delete from clientes where id_clientes=?`
 
         con.query(sql, [id], function (err, result) {
             if (err)

@@ -15,7 +15,7 @@ class VeiculoModel {
     };
 
     static createVeiculos(dados, callback) {
-        let sql = `insert into veiculos(id_Veiculo, marca_do_veiculo, modelo_do_veiculo, ano, preco_de_venda, descricao) values (?,?,?,?,?,?)`
+        let sql = `insert into veiculos(id_veiculo, marca_do_veiculo, modelo_do_veiculo, ano, preco_de_venda, descricao) values (?,?,?,?,?,?)`
 
         con.query(sql, [dados.id_veiculo, dados.marca_do_veiculo, dados.modelo_do_veiculo, dados.ano, dados.preco_de_venda, dados.descricao], async function (err, result) {
             if (err)

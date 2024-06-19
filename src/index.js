@@ -19,5 +19,5 @@ app.use(routeTeste_Direcao)
 
 //levanta o server
 app.listen(process.env.PORT, function(){
-    console.log('Servidor executando na porta 3001')
+    console.log('Servidor executando na porta 3006')
 })
