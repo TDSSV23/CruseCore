@@ -95,21 +95,7 @@ class ClienteController {
         }
     }
 
-    static loginCliente(req, res) {
-        const { email, password } = req.body;
 
-        ClienteModel.loginCliente(email, password, (err, cliente) => {
-            if (err) {
-                console.error('Erro ao fazer login:', err);
-                return res.status(500).json({ error: "Erro ao fazer login." });
-            }
-
-            res.status(200).json({
-                message: "Login realizado com sucesso!",
-                data: cliente
-            });
-        });
-    }
     
 } export default ClienteController;
 

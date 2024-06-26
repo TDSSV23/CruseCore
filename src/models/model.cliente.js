@@ -15,9 +15,9 @@ class ClienteModel {
     };
 
     static createCliente(dados, callback) {
-        let sql = `insert into clientes(id_clientes, nome, cnh, email, telefone, end_logradouro, end_numero, end_bairro, end_cidade, end_uf, end_cep, password) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+        let sql = `insert into clientes( nome, cnh, email, telefone, end_logradouro, end_numero, end_bairro, end_cidade, end_uf, end_cep) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-        con.query(sql, [dados.id_cliente, dados.nome, dados.cnh, dados.email, dados.telefone, dados.end_logradouro, dados.end_numero, dados.end_bairro, dados.end_cidade, dados.end_uf, dados.end_cep, dados.password], async function (err, result) {
+        con.query(sql, [dados.nome, dados.cnh, dados.email, dados.telefone, dados.end_logradouro, dados.end_numero, dados.end_bairro, dados.end_cidade, dados.end_uf, dados.end_cep], async function (err, result) {
             if (err)
                 callback(err, null);
             else {
@@ -50,28 +50,7 @@ class ClienteModel {
         });
     }
 
-    static loginCliente(email, password, callback) {
-        let sql = `SELECT * FROM clientes WHERE email = ?`;
 
-        con.query(sql, [email], async function (err, result) {
-            if (err) {
-                callback(err, null);
-            } else {
-                if (result.length === 0) {
-                    callback({ message: "Usuário não encontrado." }, null);
-                } else {
-                    const cliente = result[0];
-                    const passwordMatch = await bcrypt.compare(password, cliente.password);
-                    if (passwordMatch) {
-                        callback(null, cliente);
-                    } else {
-                        callback({ message: "Senha incorreta." }, null);
-                    }
-                }
-            }
-        }
-        )
-    };
 }
 
 export default ClienteModel;
